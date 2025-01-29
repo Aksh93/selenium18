@@ -9,13 +9,8 @@ import org.testng.annotations.Test;
 import com.ui.pages.homePage;
 import com.ui.pojo.User;
 
-public class LoginTestOLD {
+public class LoginTestOLD extends TestBase {
 	homePage home;
-	
-	@BeforeMethod(description = "load th homepage of website")
-	public void setup() {
-	home = new homePage(EDGE);
-	}
 	
 	@Test(description="verifies login", dataProviderClass = com.ui.dataProviders.LoginDataProvider.class, dataProvider = "LoginTestDataProvider", 
 			retryAnalyzer= com.ui.listeners.MyRetryAnalyzer.class )

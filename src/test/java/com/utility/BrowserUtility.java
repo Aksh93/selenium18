@@ -50,6 +50,20 @@ public abstract class BrowserUtility {
 		}
 	}
 	
+	public BrowserUtility(Browser browserName, boolean isHeadless) {
+		if(browserName == Browser.CHROME) {
+			
+			driver = new ChromeDriver();
+		}
+		else if(browserName == Browser.EDGE) {
+			
+			driver = new EdgeDriver();
+		}
+		else {
+			System.err.println("invalid browser name .....please select");
+		}
+	}
+	
 	public void goToWebsite(String url) {
 		
 		driver.get(url);
