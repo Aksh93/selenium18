@@ -2,8 +2,7 @@ package com.ui.pojo;
 
 import java.util.List;
 
-public class testData {
-   
+public class TestData {
 	List<User> data;
 
 	public List<User> getData() {
@@ -13,5 +12,5 @@ public class testData {
 	public void setData(List<User> data) {
 		this.data = data;
 	}
-	
+
 }
