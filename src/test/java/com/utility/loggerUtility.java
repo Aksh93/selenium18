@@ -1,15 +1,19 @@
 package com.utility;
 
-import io.opentelemetry.api.logs.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-public class loggerUtility {
-
+public class LoggerUtility {// remember that we have used singleton design pattern here
 	
-	
-	private static Logger logger;
-	
-	private loggerUtility() {
-		// TODO Auto-generated constructor stub
+	private LoggerUtility() {
 	}
 	
+	public static Logger getLogger(Class<?> clazz) {
+		Logger logger =null;
+		if(logger==null) {
+			logger = LogManager.getLogger(clazz);
+		}
+		return logger;
+	}
+
 }
