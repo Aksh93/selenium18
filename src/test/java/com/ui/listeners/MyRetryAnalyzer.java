@@ -1,25 +1,28 @@
 package com.ui.listeners;
 
+import org.openqa.selenium.InsecureCertificateException;
 import org.testng.IRetryAnalyzer;
 import org.testng.ITestResult;
 
-public class MyRetryAnalyzer implements IRetryAnalyzer  {
+import com.constants.Env;
+import com.utility.JSONUtility;
+import com.utility.PropertiesUtil;
 
-	private static final int max_number_of_attempts = 2;
-	private static int current_attempt = 1;
+public class MyRetryAnalyzer implements IRetryAnalyzer {
+//	private static final int MAX_NUMBER_OF_ATTEMPTS = Integer.parseInt(PropertiesUtil.readProperty(Env.DEV, "MAX_NUMBER_OF_ATTEMPTS"));
+	
+	private static final int MAX_NUMBER_OF_ATTEMPTS = JSONUtility.readJSON(Env.QA).getMAX_NUMBER_OF_ATTEMPTS();
+
+	private static int currentAttempt = 1;
+
 	@Override
 	public boolean retry(ITestResult result) {
-		// TODO Auto-generated method stub
-		if(current_attempt<=max_number_of_attempts) {
-			current_attempt++;
+		if(currentAttempt<=MAX_NUMBER_OF_ATTEMPTS) {
+			currentAttempt++;
 			return true;
 		}
 		
 		return false;
 	}
 
-	
-	
-	
-	
 }
